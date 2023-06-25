@@ -1,0 +1,51 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "contributors": [],
+  "scripts": {
+    "dev": "",
+    "test": ""
+  },
+  "dependencies": {
+    "@bitauth/libauth": "^2.0.0-alpha.8",
+    "@ethereum-attestation-service/eas-sdk": "^0.29.0",
+    "@maticnetwork/maticjs": "^3.6.0",
+    "@maticnetwork/maticjs-ethers": "^1.0.3",
+    "@psf/bch-js": "^6.7.4",
+    "bip39": "^3.1.0",
+    "cashc": "^0.8.1",
+    "cashscript": "^0.8.1",
+    "dotenv": "^16.3.1",
+    "mainnet-js": "^1.1.30",
+    "url": "^0.11.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.2",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@types/node": "^20.3.1",
+    "ethers": "^6.6.1",
+    "hardhat": "^2.16.0",
+    "typescript": "^5.1.3"
+  }
+}

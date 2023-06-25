@@ -1,0 +1,50 @@
+pragma cashscript ^0.8.0;
+
+contract SwapLock(
+    bytes20 senderPkh,
+    bytes20 recipientPkh,
+    int timeout
+) {
+    // Require recipient's signature to match
+    function exchange(pubkey recipientPubKey, sig recipientSig, pubkey senderPubKey, sig senderSig) {
+        require(hash160(recipientPubKey) == recipientPkh);
+        require(hash160(senderPubKey) == recipientPkh);
+        require(checkSig(recipientSig, recipientPubKey));
+        require(checkSig(senderSig, senderPubKey));
+    }
+
+    // Require timeout time to be reached and sender's signature to match
+    function withdraw(pubkey senderPubKey, sig senderSig) {
+        require(tx.time >= timeout);
+        require(hash160(senderPubKey) == senderPkh);
+        require(checkSig(senderSig, senderPubKey));
+    }
+
+    function demoPurposeCall(pubkey senderPubKey, sig senderSig) {
+        require(hash160(senderPubKey) == senderPkh);
+        require(checkSig(senderSig, senderPubKey));
+    }
+
+    // function attest(pubkey senderPubKey, sig senderSig) {
+    //     bytes op_return_data = new LockingBytecodeNullData([
+    //         0x60,
+    //         0xaa36a7,
+    //         bytes('H2/0twdWF+4BQAL0IXhLNAP5zB3GzbU5BZTJ2os7BiIvQyT3O85decDMf6PVvRz9dBeylJgw1iGTCrnoXnRH7vc=')
+    //     ]);
+
+    //     require(hash160(senderPubKey) == senderPkh);
+
+    //     // Check that the first tx output matches the OP Return data
+    //     require(tx.outputs[0].value == 0);
+    //     require(tx.outputs[0].lockingBytecode == op_return_data);
+
+    //     // Calculate leftover money after fee (1000 sats)
+    //     // Check that the second tx output sends the change back if there's enough leftover for another OP RETURN output
+    //     int minerFee = 1000;
+    //     int changeAmount = tx.inputs[this.activeInputIndex].value - minerFee;
+    //     if (changeAmount >= minerFee) {
+    //         require(tx.outputs[1].lockingBytecode == tx.inputs[this.activeInputIndex].lockingBytecode);
+    //         require(tx.outputs[1].value == changeAmount);
+    //     }
+    // }
+}
