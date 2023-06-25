@@ -8,7 +8,7 @@ contract SwapLock(
     // Require recipient's signature to match
     function exchange(pubkey recipientPubKey, sig recipientSig, pubkey senderPubKey, sig senderSig) {
         require(hash160(recipientPubKey) == recipientPkh);
-        require(hash160(senderPubKey) == recipientPkh);
+        require(hash160(senderPubKey) == senderPkh);
         require(checkSig(recipientSig, recipientPubKey));
         require(checkSig(senderSig, senderPubKey));
     }

@@ -2,10 +2,10 @@ import { compileFile } from 'cashc';
 import { ElectrumNetworkProvider, Contract, SignatureTemplate } from 'cashscript';
 import { stringify } from '@bitauth/libauth';
 
-import { alicePkh, bobPkh, alicePriv, alicePub, aliceAddress } from '../utils/common.js'
+import { alicePkh, bobPkh, alicePriv, alicePub, aliceAddress, bobPub, bobPriv, bobAddress } from '../utils/common.js'
 // console.log("wallet address:", aliceAddress);
 
-const p2shAddr = "bchtest:pvpz5wpvekk9ptrelr26awwxyjqjj7vypp2srktpz8tszr7p8ry42n5ch2yet"
+const p2shAddr = "bchtest:p0sd42x8jwh90mvkgrkadnw5hq97fedhqemvmpqscveytzy48zc6swmkv9h5t"
 
 const demoAliceMessage = 'H3hvPIRMBSVXKOmIwx2860KbL74UmYj/QumkxR+LUwHSFZ+b0ZLdLUpgMhGiomf6CR4bhYTDYV4zNlwWtNCiqfI='
 
@@ -30,28 +30,27 @@ console.log('contract balance:', await contract.getBalance());
 // And use it to send 0. 000 100 00 BCH back to the contract's address
 // const tx = await contract.functions
 //   .withdraw(alicePub, new SignatureTemplate(alicePriv))
-//   .to("bchtest:pvpz5wpvekk9ptrelr26awwxyjqjj7vypp2srktpz8tszr7p8ry42n5ch2yet", 999710n)
+//   .to("bchtest:p0sd42x8jwh90mvkgrkadnw5hq97fedhqemvmpqscveytzy48zc6swmkv9h5t", 997900n)
 //   .send();
 
 // console.log('transaction details:', stringify(tx));
 
-// // Call the spend function with alice's signature + pk
-// // And use it to send two outputs of 0. 000 150 00 BCH back to the contract's address
+// Call the exchange function
 // const tx2 = await contract.functions
-//   .spend(alicePub, new SignatureTemplate(alicePriv))
-//   .to(contract.address, 15000n)
-//   .to(contract.address, 15000n)
-//   .send();
+//   .exchange(bobPub, new SignatureTemplate(bobPriv), alicePub, new SignatureTemplate(alicePriv))
+//   .to(bobAddress, 10000n)
+//   .send()
 
 // console.log('transaction details:', stringify(tx2));
 
-// Call the demoPurposeCall to broadcast OP_RETURN output from cashscript contract
-const tx3 = await contract.functions
-  .demoPurposeCall(alicePub, new SignatureTemplate(alicePriv))
-  .withOpReturn(['0x60', '0xaa3617', demoAliceMessage, demoBobMessage])
-  .send();
 
-console.log('transaction details:', stringify(tx3));
+// Call the demoPurposeCall to broadcast OP_RETURN output from cashscript contract
+// const tx3 = await contract.functions
+//   .demoPurposeCall(alicePub, new SignatureTemplate(alicePriv))
+//   .withOpReturn(['0x60', '0xaa3617', demoAliceMessage, demoBobMessage])
+//   .send();
+
+// console.log('transaction details:', stringify(tx3));
 
 
 
