@@ -1,13 +1,4 @@
 # Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+Deployed Contract on Polygon Mumbai - https://mumbai.polygonscan.com/address/0xe083e596df57a37b9a063c6a3526a7728a01d618
+Deployed Contract on Bitcoin Cash Chipnet - https://chipnet.imaginary.cash/address/bchtest:p0sd42x8jwh90mvkgrkadnw5hq97fedhqemvmpqscveytzy48zc6swmkv9h5t
