@@ -7,7 +7,9 @@ import { alicePkh, bobPkh, alicePriv, alicePub, aliceAddress } from '../utils/co
 
 const p2shAddr = "bchtest:pvpz5wpvekk9ptrelr26awwxyjqjj7vypp2srktpz8tszr7p8ry42n5ch2yet"
 
-const demoMessage = 'H2/0twdWF+4BQAL0IXhLNAP5zB3GzbU5BZTJ2os7BiIvQyT3O85decDMf6PVvRz9dBeylJgw1iGTCrnoXnRH7vc='
+const demoAliceMessage = 'H3hvPIRMBSVXKOmIwx2860KbL74UmYj/QumkxR+LUwHSFZ+b0ZLdLUpgMhGiomf6CR4bhYTDYV4zNlwWtNCiqfI='
+
+const demoBobMessage = 'IBiCWt62mI7KeC981vcvgg1x79XsSWhytNqKR9Y9AVzYQUn7L08zKlA+FKt+cJQvgh3VKFR9doZr9N/3G8ylX0Q='
 
 // Compile the P2PKH contract to an artifact object
 const artifact = compileFile(new URL('../cashscript/SwapLock.cash', import.meta.url));
@@ -46,10 +48,10 @@ console.log('contract balance:', await contract.getBalance());
 // Call the demoPurposeCall to broadcast OP_RETURN output from cashscript contract
 const tx3 = await contract.functions
   .demoPurposeCall(alicePub, new SignatureTemplate(alicePriv))
-  .withOpReturn(['0x60', '0xaa3617', demoMessage])
+  .withOpReturn(['0x60', '0xaa3617', demoAliceMessage, demoBobMessage])
   .send();
 
-// console.log('transaction details:', stringify(tx3));
+console.log('transaction details:', stringify(tx3));
 
 
 

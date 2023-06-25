@@ -6,9 +6,9 @@
 // global scope, and execute the script.
 import hre from "hardhat";
 
-import { ethAccountAlice, ethAccountBob } from '../utils/common.js'
+import { ethAccountBob } from '../utils/common.js'
 
-const currentTimestampInSeconds = Math.round(Date.now() / 1000);
+// const currentTimestampInSeconds = Math.round(Date.now() / 1000);
 // const unlockTime = currentTimestampInSeconds + 60;
 const unlockTime = 1687676578
 

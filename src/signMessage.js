@@ -11,8 +11,8 @@ const jsonData = {
   ethSender: ethAccountBob.address,
   ethReceiver: ethAccountAlice.address,
   ethAmount: 0.001,
-  ethEscrowAddr: "0xsldkjfaldfj;l",
-  ethTimeout: 4913759304719
+  ethEscrowAddr: "0xe083e596Df57A37B9a063c6A3526a7728A01d618",
+  ethTimeout: 1687676578
 }
 
 const msg = JSON.stringify(jsonData)

@@ -18,5 +18,9 @@ module.exports = {
       url: process.env.SEPOLIA_API_URL,
       accounts: [process.env.ACCOUNT_PRIVATE_KEY],
     },
+    polygon_mumbai: {
+      url: process.env.MATIC_API_URL,
+      accounts: [`0x${process.env.ETH_PRIV_KEY_1}`]
+   }
   },
 };
